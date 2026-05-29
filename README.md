@@ -137,7 +137,52 @@ interface LLMProvider {
 Para trocar de Gemini para Claude Haiku, basta alterar o provider injetado no controller — o resto da aplicação permanece intacto.
 
 ---
+## Design & Interface
 
+A interface de PlatoSearch é tematizada pela **Grécia Antiga**, refletindo a origem clássica do conhecimento que democratizamos:
+
+- **Paleta de cores primária**: Terra Cota (inspirado em ânforas e cerâmicas gregas)
+- **Elementos visuais**: Colunas dóricas, friso geométrico grego (meander), padrões clássicos
+- **Linguagem**: Formal, educacional, respeitosa ao contexto filosófico
+- **Restrição**: Sem emojis em nenhuma circunstância — apenas ícones e tipografia
+
+Esta escolha visual homenageia a tradição helênica enquanto mantém a acessibilidade pedagógica.
+
+---
+
+## Convenções & Workflow
+
+### Instruções do Projeto
+Veja `.github/instructions/platosearch.instructions.md` para:
+- Requisitos de UI/UX (tema grego, sem emojis)
+- Padrão de commits (Conventional Commits)
+- Escopos permitidos para commits
+- Arquitetura detalhada (Strategy Pattern, etc)
+- Variáveis de ambiente esperadas
+
+### Commits
+Todos os commits devem seguir **Conventional Commits** (https://www.conventionalcommits.org/):
+
+```
+<type>(<scope>): <subject>
+```
+
+**Tipos**: `feat`, `fix`, `refactor`, `style`, `docs`, `test`, `chore`  
+**Escopos**: `api`, `llm`, `perseus`, `ui`, `types`, `build`, `docs`, `test`
+
+Exemplo:
+```bash
+git commit -m "feat(ui): add ancient greek column decoration to search header"
+```
+
+**Importante**: Commits nunca devem incluir "Co-authored by copilot" ou similares.
+
+Para ajuda na criação de commits, use a skill `conventional-commits`:
+```
+/conventional-commits
+```
+
+---
 ## Fontes dos textos
 
 Os textos são servidos pela [Perseus Digital Library](https://scaife.perseus.org/) via CTS API, utilizando o pacote [`plato-texts`](https://github.com/jwkeena/plato-texts). Todas as traduções em inglês são de domínio público (tradução Jowett).
