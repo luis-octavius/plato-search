@@ -36,7 +36,7 @@ Bem-vindo à documentação completa do PlatoSearch. Este diretório contém gui
   - Temas e estilos
   - Troubleshooting
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Backend
 
@@ -60,7 +60,7 @@ npm run dev
 
 ---
 
-## 📡 API Endpoints Principais
+## API Endpoints Principais
 
 | Método | Endpoint | Descrição |
 |--------|----------|-----------|
@@ -72,7 +72,7 @@ Veja [API.md](./API.md) para documentação completa.
 
 ---
 
-## 🎨 Componentes Principais
+## Componentes Principais
 
 | Componente | Localização | Propósito |
 |------------|-------------|----------|

@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 Índice
+## Índice
 
 - [Inicialização](#inicialização)
 - [Configuração](#configuração)
@@ -76,7 +76,7 @@ Servidor estará disponível em `http://localhost:3000`.
 
 ### Variáveis de Ambiente
 
-#### `GEMINI_API_KEY` ⭐ Obrigatório
+#### `GEMINI_API_KEY` Obrigatório
 
 Chave de API do Google Gemini (https://ai.google.dev/).
 
@@ -84,7 +84,7 @@ Chave de API do Google Gemini (https://ai.google.dev/).
 GEMINI_API_KEY=AIzaSyDxxxxx
 ```
 
-#### `ADAPTATION_PROMPT` ⭐ Obrigatório
+#### `ADAPTATION_PROMPT` Obrigatório
 
 Prompt customizado que será usado como `system prompt` para todas as requisições de adaptação de texto.
 

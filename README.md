@@ -18,14 +18,14 @@ PlatoSearch democratiza o acesso ao pensamento platônico nas escolas públicas 
 
 ## Documentação Completa
 
-Toda a documentação está em `.github/docs/`:
+Toda a documentação está em `docs/`:
 
 | Documento | Conteúdo |
 |-----------|----------|
-| **[INDEX.md](.github/docs/INDEX.md)** | Dashboard e quick start |
-| **[API.md](.github/docs/API.md)** | Documentação REST API completa |
-| **[BACKEND.md](.github/docs/BACKEND.md)** | Setup, arquitetura e desenvolvimento do servidor |
-| **[FRONTEND.md](.github/docs/FRONTEND.md)** | Componentes React e integração |
+| **[INDEX.md](docs/INDEX.md)** | Dashboard e quick start |
+| **[API.md](docs/API.md)** | Documentação REST API completa |
+| **[BACKEND.md](docs/BACKEND.md)** | Setup, arquitetura e desenvolvimento do servidor |
+| **[FRONTEND.md](docs/FRONTEND.md)** | Componentes React e integração |
 
 ---
 
