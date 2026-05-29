@@ -3,7 +3,7 @@
  * Any LLM provider must implement this interface
  */
 
-import { AdaptationLevel } from '../types/adaptation.types';
+import type { AdaptationLevel } from '../types/adaptation.types';
 
 export interface LLMRequest {
   text: string;
