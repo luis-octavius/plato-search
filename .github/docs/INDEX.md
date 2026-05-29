@@ -8,6 +8,14 @@ Bem-vindo à documentação completa do PlatoSearch. Este diretório contém gui
 
 ### Backend
 
+- **[BACKEND.md](./BACKEND.md)** — Guia de desenvolvimento e configuração do servidor
+  - Setup inicial e instalação
+  - Variáveis de ambiente
+  - Arquitetura e design patterns
+  - Serviços e providers
+  - Como adicionar novos endpoints
+  - Deployment e troubleshooting
+
 - **[API.md](./API.md)** — Documentação REST da API backend
   - Todos os endpoints
   - Parâmetros e respostas
