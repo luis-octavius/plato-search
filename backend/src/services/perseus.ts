@@ -4,7 +4,6 @@
  *
  * Reference: https://www.perseus.tufts.edu/hopper/
  */
-
 export interface PassageSearchResult {
   reference: string; // e.g., "República 7.514a"
   greek: string; // Original Greek text
