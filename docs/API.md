@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 Índice
+## Índice
 
 - [Health Check](#health-check)
 - [Endpoints](#endpoints)

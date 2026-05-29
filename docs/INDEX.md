@@ -1,10 +1,10 @@
-# 📚 Documentação PlatoSearch
+# Documentação PlatoSearch
 
 Bem-vindo à documentação completa do PlatoSearch. Este diretório contém guias para desenvolvedores, documentação da API e recursos de uso.
 
 ---
 
-## 📖 Documentação por Seção
+## Documentação por Seção
 
 ### Backend
 
@@ -35,27 +35,6 @@ Bem-vindo à documentação completa do PlatoSearch. Este diretório contém gui
   - Guia de desenvolvimento
   - Temas e estilos
   - Troubleshooting
-
-### Infraestrutura & Projeto
-
-- **[../.github/instructions/platosearch.instructions.md](../.github/instructions/platosearch.instructions.md)** — Requisitos do projeto
-  - Visual identity (Grécia Antiga, Terra Cota)
-  - Padrão de commits
-  - Arquitetura da aplicação
-  - Checklist para features
-
-- **[../.github/CONTRIBUTING.md](../.github/CONTRIBUTING.md)** — Como contribuir
-  - Setup inicial
-  - Workflow de desenvolvimento
-  - Padrão de commits
-  - Checklist de feature
-
-- **[../.github/QUICK-REFERENCE.md](../.github/QUICK-REFERENCE.md)** — Referência rápida
-  - Dashboard de recursos
-  - Comandos essenciais
-  - Skills disponíveis
-
----
 
 ## 🚀 Quick Start
 
@@ -106,7 +85,7 @@ Veja [FRONTEND.md](./FRONTEND.md) para documentação de componentes.
 
 ---
 
-## 🔧 Stack Tecnológico
+## Stack Tecnológico
 
 ### Backend
 - Node.js 18+
@@ -124,7 +103,7 @@ Veja [FRONTEND.md](./FRONTEND.md) para documentação de componentes.
 
 ---
 
-## 📋 Estrutura de Pastas
+## Estrutura de Pastas
 
 ```
 plato-search/
@@ -171,7 +150,7 @@ plato-search/
 
 ---
 
-## 🎯 Fluxo da Aplicação
+## Fluxo da Aplicação
 
 ```
 Frontend (React)
@@ -197,7 +176,7 @@ PassageDisplay (renderiza resultado)
 
 ---
 
-## 🔐 Variáveis de Ambiente
+## Variáveis de Ambiente
 
 ### Backend (.env)
 
@@ -216,7 +195,7 @@ VITE_API_URL=http://localhost:3000/api
 
 ---
 
-## ✅ Checklist de Setup
+## Checklist de Setup
 
 - [ ] Node.js 18+ instalado
 - [ ] Git configurado
@@ -230,7 +209,7 @@ VITE_API_URL=http://localhost:3000/api
 
 ---
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Backend não inicia
 - Verifique Node.js: `node --version`
@@ -249,7 +228,7 @@ VITE_API_URL=http://localhost:3000/api
 
 ---
 
-## 📞 Suporte
+## Suporte
 
 Para dúvidas ou problemas:
 
@@ -266,7 +245,7 @@ Para dúvidas ou problemas:
 
 ---
 
-## 🏛️ Sobre o Projeto
+##  Sobre o Projeto
 
 **PlatoSearch** é uma plataforma educacional que democratiza o acesso ao pensamento platônico nas escolas públicas brasileiras. 
 

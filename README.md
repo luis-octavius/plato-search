@@ -2,141 +2,78 @@
 
 > Plataforma educacional para busca e adaptação de textos de Platão para o ensino médio brasileiro.
 
-PlatoSearch é uma aplicação web que permite a professores e estudantes buscar passagens dos diálogos de Platão — com o grego original e tradução em inglês — e adaptá-las para uma linguagem acessível em português, preservando a essência filosófica do argumento.
+PlatoSearch democratiza o acesso ao pensamento platônico nas escolas públicas brasileiras. Busca passagens dos diálogos de Platão (com grego original e tradução em inglês) e as adapta para português acessível em três níveis de dificuldade usando IA.
 
-O projeto nasceu como **Atividade Extensionista** do curso de Análise e Desenvolvimento de Sistemas (ADS) e utiliza IA para democratizar o acesso ao pensamento platônico nas escolas públicas brasileiras.
+**Status**: MVP concluído com full-stack funcional  
+**Stack**: Node.js + TypeScript + Express (backend) | React + TypeScript (frontend)
+
+> [!warning]
+> É preciso entender que a aplicação não busca substituir o conhecimento dos livros.  
+> O que está aqui é um **convite inicial**.  
+> No caso do professor para auxiliar a contextuação de Platão na sala de aula de forma mais facilitada.  
+> No caso do aluno, que o aluno tenha uma primeira aproximação aos textos platônicos.  
+> **O TEXTO DOS LIVROS É INSUBSTITUÍVEL**.  
+
+---
+
+## Documentação Completa
+
+Toda a documentação está em `.github/docs/`:
+
+| Documento | Conteúdo |
+|-----------|----------|
+| **[INDEX.md](.github/docs/INDEX.md)** | Dashboard e quick start |
+| **[API.md](.github/docs/API.md)** | Documentação REST API completa |
+| **[BACKEND.md](.github/docs/BACKEND.md)** | Setup, arquitetura e desenvolvimento do servidor |
+| **[FRONTEND.md](.github/docs/FRONTEND.md)** | Componentes React e integração |
 
 ---
 
 ## Funcionalidades
 
--  **Busca por passagem** — pesquise qualquer diálogo de Platão por referência de Stephanus (ex: `República 514a`)
--  **Grego original** — exibição do texto em grego antigo para referência filológica (opcional)
--  **Tradução em inglês** — tradução de domínio público via Perseus Digital Library (Jowett)
--  **Adaptação por IA** — reescrita em português acessível, em três níveis: iniciante, intermediário e avançado
--  **Provedor de LLM intercambiável** — arquitetura que permite trocar o modelo de IA sem alterar a lógica da aplicação
+- **Busca por passagem** — pesquise qualquer diálogo de Platão por referência de Stephanus (ex: `República 7.514a`)
+- **Texto grego original** — com tradução em inglês via Perseus Digital Library (Jowett)
+- **Adaptação por IA** — reescrita em português em três níveis: iniciante, intermediário e avançado
+- **Provedor de LLM intercambiável** — Strategy Pattern permite trocar entre Gemini, Claude, etc.
 
 ---
 
-## Estrutura do Projeto
-
-```
-platosearch/
-├── frontend/                  # React + TypeScript
-│   ├── public/
-│   ├── src/
-│   │   ├── components/        # Componentes reutilizáveis
-│   │   ├── pages/             # Páginas da aplicação
-│   │   ├── services/          # Chamadas HTTP ao backend
-│   │   └── types/             # Tipos TypeScript compartilhados
-│   ├── package.json
-│   └── tsconfig.json
-│
-├── backend/                   # Node.js + TypeScript
-│   ├── src/
-│   │   ├── routes/            # Definição das rotas Express
-│   │   ├── controllers/       # Lógica de cada endpoint
-│   │   ├── services/
-│   │   │   ├── perseus.ts     # Integração com a Perseus API
-│   │   │   └── llm/
-│   │   │       ├── llm.interface.ts        # Contrato da LLM
-│   │   │       ├── gemini.provider.ts      # Implementação Gemini (padrão)
-│   │   │       └── anthropic.provider.ts   # Implementação futura (Haiku)
-│   │   └── types/
-│   ├── package.json
-│   └── tsconfig.json
-│
-├── .gitignore
-└── README.md
-```
-
----
-
-##  Como rodar localmente
+## Quick Start
 
 ### Pré-requisitos
-
 - Node.js 18+
-- Uma chave de API do [Google Gemini](https://aistudio.google.com/)
+- [Google Gemini API key](https://ai.google.dev/)
 
 ### Backend
-
 ```bash
-cd backend
-npm install
-cp .env.example .env   # preencha com sua GEMINI_API_KEY
-npm run dev
+cd backend && npm install
+cp .env.example .env  # Configure GEMINI_API_KEY e ADAPTATION_PROMPT
+npm run dev           # Servidor em http://localhost:3000
 ```
 
 ### Frontend
-
 ```bash
-cd frontend
-npm install
-npm run dev
+cd frontend && npm install
+npm run dev           # Interface em http://localhost:5173
 ```
 
-A aplicação estará disponível em `http://localhost:5173`.
+**Para instruções detalhadas**, veja [BACKEND.md](.github/docs/BACKEND.md) e [FRONTEND.md](.github/docs/FRONTEND.md).
 
 ---
 
-## API
+## API Endpoints
 
-### `GET /api/passage`
+| Endpoint | Método | Descrição |
+|----------|--------|-----------|
+| `/api/passages/search` | `GET` | Buscar passagem por diálogo e referência |
+| `/api/passages/dialogues` | `GET` | Listar diálogos disponíveis |
+| `/health` | `GET` | Health check |
 
-Busca uma passagem na Perseus Digital Library.
-
-| Parâmetro    | Tipo   | Exemplo       |
-|--------------|--------|---------------|
-| `dialogue`   | string | `republic`    |
-| `stephanus`  | string | `7.514a`      |
-
-**Resposta:**
-```json
-{
-  "passage": "...",
-  "greek": "...",
-  "english": "...",
-  "reference": "República 514a"
-}
-```
+**Veja [API.md](.github/docs/API.md) para documentação completa com exemplos.**
 
 ---
 
-### `POST /api/adapt`
 
-Adapta uma passagem usando IA.
-
-**Body:**
-```json
-{
-  "text": "...",
-  "level": "beginner" | "intermediate" | "advanced"
-}
-```
-
-**Resposta:**
-```json
-{
-  "adapted": "..."
-}
-```
-
----
-
-## Arquitetura da camada de LLM
-
-O backend utiliza o padrão de **Strategy** para a integração com modelos de linguagem. Qualquer provider que implemente a interface `LLMProvider` pode ser injetado sem alterar o restante da aplicação:
-
-```typescript
-interface LLMProvider {
-  adapt(text: string, level: AdaptationLevel): Promise<string>;
-}
-```
-
-Para trocar de Gemini para Claude Haiku, basta alterar o provider injetado no controller — o resto da aplicação permanece intacto.
-
----
 ## Design & Interface
 
 A interface de PlatoSearch é tematizada pela **Grécia Antiga**, refletindo a origem clássica do conhecimento que democratizamos:
@@ -150,61 +87,38 @@ Esta escolha visual homenageia a tradição helênica enquanto mantém a acessib
 
 ---
 
-## Convenções & Workflow
+## Contribuindo 
 
-### Instruções do Projeto
-Veja `.github/instructions/platosearch.instructions.md` para:
-- Requisitos de UI/UX (tema grego, sem emojis)
+Veja [.github/instructions/platosearch.instructions.md](.github/instructions/platosearch.instructions.md) para:
+- Requisitos de UI/UX (tema Grécia Antiga, Terra Cota, sem emojis)
 - Padrão de commits (Conventional Commits)
-- Escopos permitidos para commits
-- Arquitetura detalhada (Strategy Pattern, etc)
-- Variáveis de ambiente esperadas
-
-### Commits
-Todos os commits devem seguir **Conventional Commits** (https://www.conventionalcommits.org/):
-
-```
-<type>(<scope>): <subject>
-```
-
-**Tipos**: `feat`, `fix`, `refactor`, `style`, `docs`, `test`, `chore`  
-**Escopos**: `api`, `llm`, `perseus`, `ui`, `types`, `build`, `docs`, `test`
-
-Exemplo:
-```bash
-git commit -m "feat(ui): add ancient greek column decoration to search header"
-```
-
-**Importante**: Commits nunca devem incluir "Co-authored by copilot" ou similares.
-
-Para ajuda na criação de commits, use a skill `conventional-commits`:
-```
-/conventional-commits
-```
-
----
-## Fontes dos textos
-
-Os textos são servidos pela [Perseus Digital Library](https://scaife.perseus.org/) via CTS API, utilizando o pacote [`plato-texts`](https://github.com/jwkeena/plato-texts). Todas as traduções em inglês são de domínio público (tradução Jowett).
+- Arquitetura e design patterns
+- Checklist para novas features
 
 ---
 
-## Stack
+## Stack Tecnológico
 
-| Camada     | Tecnologia                          |
-|------------|-------------------------------------|
-| Frontend   | React 18 + TypeScript + Vite        |
-| Backend    | Node.js + TypeScript + Express      |
-| LLM (MVP)  | Google Gemini (free tier)           |
-| LLM (prod) | Anthropic Claude Haiku 4.5          |
-| Textos     | Perseus Digital Library (CTS API)   |
-| Deploy     | AWS (backend) + Vercel (frontend)   |
+| Camada | Tecnologia |
+|--------|-----------|
+| **Frontend** | React 18 + TypeScript + Vite |
+| **Backend** | Node.js + Express + TypeScript |
+| **LLM** | Google Gemini (MVP) / Anthropic Claude (futuro) |
+| **Textos** | Perseus Digital Library (CTS API) |
 
 ---
 
-## Contexto acadêmico
+## Recursos & Fontes
 
-Este projeto é parte de uma **Atividade Extensionista** do curso de Análise e Desenvolvimento de Sistemas da [UFRRJ](https://portal.ufrrj.br/). O objetivo extensionista é aproximar o pensamento filosófico clássico da realidade das escolas públicas brasileiras, oferecendo uma ferramenta gratuita e acessível a professores de filosofia do ensino médio.
+- [Perseus Digital Library](https://www.perseus.tufts.edu/) — Textos gregos e traduções
+- [Google Gemini API](https://ai.google.dev/) — Adaptação por IA
+- [Conventional Commits](https://www.conventionalcommits.org/) — Padrão de commits
+
+---
+
+## Sobre o Projeto
+
+PlatoSearch é uma **Atividade Extensionista** do curso de Análise e Desenvolvimento de Sistemas (ADS) da [UFRRJ](https://portal.ufrrj.br/), com objetivo de democratizar o acesso ao pensamento platônico nas escolas públicas brasileiras.
 
 ---
 

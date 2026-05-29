@@ -8,7 +8,7 @@
 
 ---
 
-## 📋 Índice
+## Índice
 
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Componentes](#componentes)
@@ -88,12 +88,12 @@ function App() {
 
 #### Features
 
-- ✅ Campo dropdown para seleção de diálogos
-- ✅ Input para referência Stephanus
-- ✅ Validação de entrada
-- ✅ Estado de carregamento
-- ✅ Mensagens de erro contextualizadas
-- ✅ Responsivo (mobile-friendly)
+-  Campo dropdown para seleção de diálogos
+-  Input para referência Stephanus
+-  Validação de entrada
+-  Estado de carregamento
+-  Mensagens de erro contextualizadas
+-  Responsivo (mobile-friendly)
 
 #### Estilos
 
@@ -150,11 +150,11 @@ const passage = {
 
 #### Features
 
-- ✅ Abas para trocar entre níveis de adaptação
-- ✅ Exibição de texto grego original
-- ✅ Tradução em inglês (Jowett)
-- ✅ Três versões em português
-- ✅ Design responsivo
+-  Abas para trocar entre níveis de adaptação
+-  Exibição de texto grego original
+-  Tradução em inglês (Jowett)
+-  Três versões em português
+-  Design responsivo
 
 #### Seções
 
@@ -181,10 +181,10 @@ import { LoadingSpinner } from './components';
 
 #### Features
 
-- ✅ Animação smooth (spin 1s linear infinite)
-- ✅ Cor Terra Cota
-- ✅ Mensagem informativa
-- ✅ Centrado na tela
+-  Animação smooth (spin 1s linear infinite)
+-  Cor Terra Cota
+-  Mensagem informativa
+-  Centrado na tela
 
 ---
 
@@ -216,10 +216,10 @@ import { ErrorAlert } from './components';
 
 #### Features
 
-- ✅ Design destacado (cor vermelha)
-- ✅ Botão para fechar
-- ✅ Mensagem clara
-- ✅ Fácil de descartar
+-  Design destacado (cor vermelha)
+-  Botão para fechar
+-  Mensagem clara
+-  Fácil de descartar
 
 ---
 
@@ -478,11 +478,11 @@ export interface NewType {
 
 ## Accessibility
 
-- ✅ Labels em formulários
-- ✅ Suporte para teclado (navegação com Tab)
-- ✅ Contraste WCAG AA
-- ✅ Sem emojis (apenas ícones SVG quando necessário)
-- ✅ Mensagens de erro claras
+-  Labels em formulários
+-  Suporte para teclado (navegação com Tab)
+-  Contraste WCAG AA
+-  Sem emojis (apenas ícones SVG quando necessário)
+-  Mensagens de erro claras
 
 ---
 
@@ -515,10 +515,10 @@ VITE_API_URL=http://localhost:3000/api
 Verifique se está sendo importado corretamente:
 
 ```tsx
-// ✅ Correto
+//  Correto
 import { SearchBar } from './components';
 
-// ❌ Errado
+//  Errado
 import SearchBar from './components/SearchBar';
 ```
 
@@ -527,11 +527,11 @@ import SearchBar from './components/SearchBar';
 Verifique se o CSS module está sendo importado:
 
 ```tsx
-// ✅ Correto
+//  Correto
 import styles from './MyComponent.module.css';
 <div className={styles.container}>
 
-// ❌ Errado
+//  Errado
 <div className="container">
 ```
 
