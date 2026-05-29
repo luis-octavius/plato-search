@@ -21,4 +21,5 @@ export interface DialoguesResponse {
     dialogues: string[];
     count: number;
   };
+  error?: string;
 }
