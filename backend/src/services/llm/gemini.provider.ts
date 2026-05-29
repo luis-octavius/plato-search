@@ -57,13 +57,15 @@ export class GeminiProvider implements LLMProvider {
       );
 
       if (!response.ok) {
-        const errorData = await response.json();
+        const errorData = (await response.json()) as { error?: { message?: string } };
         throw new Error(
           `Gemini API error: ${response.status} - ${errorData.error?.message || 'Unknown error'}`
         );
       }
 
-      const data = await response.json();
+      const data = (await response.json()) as {
+        candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }>;
+      };
       const adaptedText = data.candidates?.[0]?.content?.parts?.[0]?.text;
 
       if (!adaptedText) {
